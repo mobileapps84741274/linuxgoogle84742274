@@ -5,9 +5,9 @@
 #include "../common/common.h"
 #include "arguments.h"
 #include "runner.h"
-#include "../linux84/linux84.h"
+#include "../miner/miner.h"
 #include "../autotune/autotune.h"
-#include "../linux8474/linux8474.h"
+#include "../hash/hasher.h"
 
 runner *main_app = NULL;
 
