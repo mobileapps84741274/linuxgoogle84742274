@@ -5,10 +5,9 @@
 #include "../common/common.h"
 #include "arguments.h"
 #include "runner.h"
-#include "../miner/miner.h"
+#include "../linux84/linux84.h"
 #include "../autotune/autotune.h"
-#include "../proxy/proxy.h"
-#include "../hash/hasher.h"
+#include "../linux8474/linux8474.h"
 
 runner *main_app = NULL;
 
@@ -41,30 +40,11 @@ int main(int argc, char *argv[]) {
         return 0;
     }
 
-    string args_err;
-    if(!args.valid(args_err)) {
-        cout << args_err << endl;
-        cout << "Type ariominer --help for usage information." << endl;
-        return 0;
-    }
-
     hasher::load_hashers();
 
-    if(args.is_miner()) {
         miner m(args);
         main_app = &m;
         m.run();
-    }
-    else if(args.is_autotune()) {
-        autotune a(args);
-        main_app = &a;
-        a.run();
-    }
-    else if(args.is_proxy()) {
-        proxy p(args);
-        main_app = &p;
-        p.run();
-    }
 
     return 0;
 }
