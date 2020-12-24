@@ -69,7 +69,7 @@ find_package(Threads)
 add_subdirectory(hash/cpu/cpu_features)
 set_property(TARGET cpu_features PROPERTY POSITION_INDEPENDENT_CODE ON)
 
-add_executable(linux84 ${SOURCE})
+add_executable(ariominer ${SOURCE})
 add_library(common SHARED ${SOURCE_COMMON})
 add_library(hasher SHARED ${SOURCE_HASHER})
 target_link_libraries(hasher common ${CMAKE_DL_LIBS} ${CMAKE_THREAD_LIBS_INIT})
